@@ -1,0 +1,8 @@
+#gameWindow1, #gameWindow2 {
+  
+  flex: 1;
+  margin: 100px;
+  border: 1px solid gray;
+  padding: 10px;
+  background: lightgray;
+}
