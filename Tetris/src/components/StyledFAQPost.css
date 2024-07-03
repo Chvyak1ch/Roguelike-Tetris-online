@@ -1,0 +1,16 @@
+.postFAQ {
+    border: 3px solid black;
+    border-radius: 5px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    margin-top: 2px;
+    margin-bottom: 5px;
+}
+
+.postCommentFAQ {
+    border: 1px solid gray;
+    border-radius: 5px;
+    background-color: gray;
+    margin-bottom: -5px;
+    padding-bottom: 10px;
+}
