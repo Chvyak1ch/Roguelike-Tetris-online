@@ -5,12 +5,25 @@ import FAQPost from "../components/FAQPost";
 
 
 const PageFAQ = () => {
-    const [quest, setQuest] = useState('');
+    const [quest, setQuest] = useState('')
+    const [postQuests, setPostQuests] = useState([{
+        quest
+    }])
 
-    const pupupu = () => {
+    const mailPost = (e) => {
+
+        const newPost = {
+            quest
+        }
+
+        console.log(newPost);
+        setPostQuests([...postQuests, newPost])
+
         console.log('кнопка была нажата!');
-        alert("Ваш вопрос был отправлен!");
+        alert("Ваш вопрос вывели на экран!");
         setQuest('');
+        console.log(postQuests);
+
     }
 
     return(
@@ -20,8 +33,9 @@ const PageFAQ = () => {
             <p>-----------</p>
 
             <h2>Ваши часто задаваемы вопросы</h2>
+
             <FAQPost 
-            titleName="И тут возник вопрос краткий вопрос?"
+            titleName="И тут возник краткий вопрос?"
             titleNameBig="а тут как пошел пошел пошел длииииный вопрос!?"
             textToTheQuestion="и тут он взял и разои отпал"           
             />
@@ -39,7 +53,7 @@ const PageFAQ = () => {
             onChange={e => setQuest(e.target.value)}
             />
             
-            <button onClick={pupupu}>Отправить</button>
+            <button onClick={mailPost}>Отправить</button>
 
         </div>
     )
