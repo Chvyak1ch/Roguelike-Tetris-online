@@ -7,6 +7,7 @@ import PageFAQ from "./Pages/PageFAQ";
 import AppTetris from "./gamePlay/AppTetris";
 import EnterUser from "./Pages/EnterUser";
 import PageRegistration from "./Pages/PageRegistration";
+import PageProfile from "./Pages/PageProfile";
 
 
 const Router = () => (
@@ -19,6 +20,7 @@ const Router = () => (
             <Route element={<AppTetris />} path="/tetris" />
             <Route element={<EnterUser />} path="/enter" />
             <Route element={<PageRegistration />} path="/registration" />
+            <Route element={<PageProfile />} path="/youProfile" />
         </Routes>
 
 

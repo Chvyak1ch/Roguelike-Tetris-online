@@ -16,8 +16,10 @@ const Header = () => {
                     <li><Link to="/">Игра</Link></li>
                     <li><Link to="/history">История</Link></li>
                     <li><Link to="/projectInfo">О проекте</Link></li>
-                    <li><Link to="/pageFAQ">FAQ</Link></li>
+                    <li><Link to="/pageFAQ">FAQ</Link></li>                   
+                    <li className="ramaProfil"><Link to="/youProfile">мой профиль</Link></li>                   
                 </ul>
+
             </div>
             </nav>
         </header>

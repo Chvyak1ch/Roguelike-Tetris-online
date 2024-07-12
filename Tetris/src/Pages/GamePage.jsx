@@ -1,9 +1,10 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import '../styledPage/gamePage.css'
 
 const GamePage = () => {
     return (
-        <div>
+        <div className="gamePage">
             <div id="gameWindow1">
                 <p><Link to ="/tetris">играть в классику</Link></p>
             </div>

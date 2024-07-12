@@ -1,40 +1,61 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
+import MyButton from "../components/MyButton";
+import MyInput from "../components/MyInput";
+import '../styledPage/registrationPage.css'
+import { addUser } from "../http/userAPI";
 
 const PageRegistration = () => {
-    const [inLogin, setInLogin] = useState('');
-    const [inPassword, setPassword] = useState('');
-    const [inEmail, setInEmail] = useState('');
-    const [inNickName, setInNickName] = useState('');
-    //надо подумать как сделать один инпут для всех и как передать данные
-    const [users, setUsers] = useState([
-        {id: 111, 
-        login: 'admin', 
-        password: 'admin', 
-        email: 'admin@mail.ru', 
-        nickName: 'ItIsAdMiN' }
-    ]);
+    const [email, setEmail] = useState('');
+    const [password, setPassword] = useState('');
+    const [userName, setUserName] = useState('');
+
+    const clickRegistr = async () => {
+        try{
+            let data;
+            console.log('1');
+            data = await addUser(email, password, userName);
+            console('2');
+            
+        } catch (e) {
+            alert(e.response.data.message)
+        }
+    }
 
     return(
-        <div>
-            <p>-------------</p>
-            <p>-------------</p>
+        <div className="bodyRegistration">
 
             <h1>Регистрация пользователя</h1>
             <h2>введите свои данные</h2>
-
-            <p>Введите логин:</p>
-            <input />
-            <p>Введите пароль:</p>
-            <input />
+            <form>
             <p>Введите вашу почту:</p>
-            <input />
+            <MyInput 
+                type="text" 
+                value={email} 
+                name="Email" 
+                onChange={e => setEmail(e.target.value)}
+            />
+                       
+            <p>Введите пароль:</p>
+            <MyInput 
+                type="text" 
+                value={password} 
+                name="Password" 
+                onChange={e => setPassword(e.target.value)}
+            />
+
             <p>Введите ваш никнейм:</p>
-            <input />
+            <MyInput 
+                type="text" 
+                value={userName} 
+                name="userName" 
+                onChange={e => setUserName(e.target.value)}
+            />
+            
             <p></p>
 
-            <button>Зарегистрироваться</button>
-
+            <MyButton onClick = {clickRegistr}>Зарегистрироваться</MyButton>
+            </form>
             <p><Link to="/enter">я вспомнил свои данные аккаунта</Link></p>
 
         </div>

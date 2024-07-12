@@ -1,0 +1,17 @@
+#gameWindow1, #gameWindow2 {
+  
+    border: 1px solid gray;
+    padding: 40px;
+    background: lightgray;
+    margin-bottom: 20px;
+    margin-left: 80px;
+    margin-right: 80px;
+
+}
+
+.gamePage {
+    padding-top: 30px;
+    margin-left: auto;
+    margin-right: auto;
+    width: 100%;
+}

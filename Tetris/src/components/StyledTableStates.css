@@ -1,0 +1,11 @@
+.rama {
+    border: 3px solid black;
+    border-radius: 10px;
+    padding-top: 15px;
+    padding-bottom: 15px;
+    margin-top: 30px;
+    margin-bottom: 30px;
+}
+div p {
+    margin-bottom: 15px;
+}

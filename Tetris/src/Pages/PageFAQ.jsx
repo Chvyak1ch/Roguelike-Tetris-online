@@ -1,5 +1,6 @@
 import React from "react";
 import { useState } from "react";
+import '../styledPage/pageFaq.css';
 //Components
 import FAQPost from "../components/FAQPost";
 
@@ -27,11 +28,8 @@ const PageFAQ = () => {
     }
 
     return(
-        <div>
-
-            <p>-----------</p>
-            <p>-----------</p>
-
+        <div className="bodyFaq">
+            
             <h2>Ваши часто задаваемы вопросы</h2>
 
             <FAQPost 
@@ -44,7 +42,7 @@ const PageFAQ = () => {
                 но чтобы ваш вопрос был принят и отправлен нам, вам нужно
                 зарегистрироваться у нас на сайте!</h2>
 
-            <p>напишите ваш ваш вопрос здесь!</p>
+            <p>напишите ваш вопрос здесь!</p>
 
             <input 
             type="text" 

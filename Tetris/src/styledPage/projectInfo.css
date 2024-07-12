@@ -1,6 +1,32 @@
+.bigBodyPages {
+    height: 100%;
+}
+
 .infoToDeveloper {
     margin-top: 100px;
     padding-top: 20px;
     padding-bottom: 20px;
     background-color: grey;
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+}
+
+.bodyPages {
+    padding-top: 20px;
+    margin-bottom: 80px;
+    margin-left: 80px;
+    margin-right: 80px;
+}
+
+.bodyPages h1 {
+    margin-bottom: 20px;
+}
+
+.bodyPages h2 {
+    margin-bottom: 20px;
+}
+
+.bodyPages p {
+    margin-bottom: 20px;
 }
