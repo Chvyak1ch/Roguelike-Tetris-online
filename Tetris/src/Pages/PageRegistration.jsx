@@ -38,7 +38,7 @@ const PageRegistration = () => {
                        
             <p>Введите пароль:</p>
             <MyInput 
-                type="text" 
+                type="password" 
                 value={password} 
                 name="Password" 
                 onChange={e => setPassword(e.target.value)}

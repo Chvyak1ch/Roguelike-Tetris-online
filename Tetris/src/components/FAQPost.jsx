@@ -7,8 +7,8 @@ const FAQPost = (props) => {
     const [comment, setComment] = useState('');
     //тут должна быть доплнительная переменная, что за user отсавил комментарий
     const [comments, setComments] = useState([
-        { id: 1, comment: 'тут пока ничего нет', user: 'Анонимус' },
-        { id: 2, comment: 'все еще пока ничего нет', user: 'Анонимус' },
+        { id: 1, comment: 'Ну все ясно, еще один псевдо кодер хочет на нас навариться, фу такими быть!', user: 'Анонимус' },
+        { id: 2, comment: 'ага, еще чуть подожди и денег уже будет просить, все как обычно', user: 'Анонимус' },
     ]);
 
     const addComment = () => {

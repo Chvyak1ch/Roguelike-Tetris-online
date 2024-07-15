@@ -36,7 +36,7 @@ const EnterUser = () => {
             />
             <p>password:</p>
             <MyInput 
-                type="text"
+                type="password"
                 value={password}
                 name="password"
                 onChange={e => setPassword(e.target.value)}
