@@ -2,19 +2,18 @@ import React, { useState } from "react";
 
 import { createStage, checkCollision } from "../gameHelpers";
 
-//Styled Components
 import { StyledTetrisWrapper, StyledTetris } from "./styles/StyledTetris";
 
-//Custom Hooks
 import { useInterval } from '../hooks/useInterval';
 import { usePlayer } from "../hooks/usePlayer";
 import { useStage } from "../hooks/useStage";
 import { useGameStatus } from "../hooks/useGameStatus";
 
-//Components
 import Stage from "./Stage";
 import Display from "./Display";
 import StartButton from "./StartButton";
+import { create } from "../../http/gamesAPI";
+import UserStore from "../../store/UserStore";
 
 const Tetris = () => {
     const [dropTime, setDropTime] = useState(null);
@@ -25,6 +24,8 @@ const Tetris = () => {
     const [score, setScore, rows, setRows, level, setLevel] = useGameStatus(rowsCleared);
 
     console.log('re-render');
+
+
 
     const movePlayer = dir => {
         if (!checkCollision(player, stage, {x: dir, y: 0 })) {
@@ -44,6 +45,17 @@ const Tetris = () => {
         setLevel(0);
     };
 
+    //--------------
+    const saveGame = async () => {
+        try {
+            let data;
+            data = await create(rows, level, score, UserStore.user.id);
+        } catch (e) {
+            alert(e.response.data.message)
+        }
+
+    };
+
     const drop = () => {
 
         if(rows > (level + 1) * 10) {
@@ -60,6 +72,7 @@ const Tetris = () => {
                 console.log("GAME OVER!!!");
                 setGameOver(true);
                 setDropTime(null);
+                saveGame();
             }
             updatePlayerPos({ x: 0, y: 0, collided: true });
         }    

@@ -1,41 +1,52 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import MyInput from "../components/MyInput";
 import MyButton from "../components/MyButton";
+import UserStore from "../store/UserStore";
+import "../styledPage/pageProfile.css";
+import { allData } from "../http/userAPI";
 
 const PageProfile = () => {
-    const[login, setLogin] = useState('');
+    const [data, setData] = useState({});
+    const [fildata, setFilData] = useState({});
     const[password, setPassword] = useState('');
     const[userName, setUserName] = useState('');
     const[email, setEmail] = useState('');
-    const[yourFace, setYourFace] = useState(
-        {
-            id: 12,
-            login: 'admin', 
-            password: "admin567", 
-            nick: "adminAdmin", 
-            email: "admin@mail.ru",
-            numberAvatar: 0
-        }
-    )
+
+
+
+    const showData = async () => {
+        
+            const response = await fetch('http://localhost:5000/api/users/showUsers');
+            const jsonData = await response.json();
+            setData(jsonData);
+            const filterByUserId = data.filter(item => item.id === UserStore.user.id);
+            setFilData(filterByUserId);
+
+    }
+
+
+
 
 
     return(
-        <div>
-
+        <div className="bodyProfile">
             <h1>Ваш профиль</h1>
-
+            <div className="formProfile">
+        <div className="blockForm">
             <p>
-                <strong>Login: {yourFace.login}</strong>
+                <strong>email: {UserStore.user.email}</strong>
                 <MyInput 
                     type="text"
                     name="Face"
-                    value={login}
-                    onChange={ e => setLogin(e.target.value)}
-                />
+                    value={email}
+                    onChange={ e => setEmail(e.target.value)}
+               />
                 <MyButton>Изменить</MyButton>
             </p>
+        </div>
+        <div className="blockForm">
             <p>
-                <strong>Password: {yourFace.password}</strong>
+                <strong>Password: </strong>
                 <MyInput 
                     type="text"
                     name="Face"
@@ -44,8 +55,10 @@ const PageProfile = () => {
                 />
                 <MyButton>Изменить</MyButton>
             </p>
+        </div>
+        <div className="blockForm">
             <p>
-                <strong>userName: {yourFace.nick}</strong>
+                <strong>userName: {}</strong>
                 <MyInput 
                     type="text"
                     name="Face"
@@ -54,16 +67,8 @@ const PageProfile = () => {
                 />
                 <MyButton>Изменить</MyButton>
             </p>
-            <p>
-                <strong>email: {yourFace.email}</strong>
-                <MyInput 
-                    type="text"
-                    name="Face"
-                    value={email}
-                    onChange={ e => setEmail(e.target.value)}
-                />
-                <MyButton>Изменить</MyButton>
-            </p>
+        </div>
+            </div>
 
         </div>
     )

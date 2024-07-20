@@ -1,0 +1,18 @@
+
+
+.bodyProfile h1 {
+    padding-top: 20px;
+    padding-bottom: 20px;
+}
+
+.formProfile {
+    border: 2px solid orange;
+    border-radius: 10px;
+    padding-top: 30px;
+    padding-bottom: 20px;
+    width: 700px;
+    margin-left: auto;
+    margin-right: auto;
+    background-color: rgb(210, 217, 255);
+    box-shadow: 12px 12px 2px 1px rgba(0, 0, 255, .2);
+}

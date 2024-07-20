@@ -4,6 +4,7 @@ import MyButton from "../components/MyButton";
 import MyInput from "../components/MyInput";
 import '../styledPage/registrationPage.css'
 import { addUser } from "../http/userAPI";
+import { Card } from "react-bootstrap";
 
 const PageRegistration = () => {
     const [email, setEmail] = useState('');
@@ -15,6 +16,8 @@ const PageRegistration = () => {
             let data;
             console.log('1');
             data = await addUser(email, password, userName);
+
+
             console('2');
             
         } catch (e) {
@@ -26,7 +29,9 @@ const PageRegistration = () => {
         <div className="bodyRegistration">
 
             <h1>Регистрация пользователя</h1>
-            <h2>введите свои данные</h2>
+            <div className="cardReg">
+            <h3>введите свои данные</h3>
+
             <form>
             <p>Введите вашу почту:</p>
             <MyInput 
@@ -56,8 +61,8 @@ const PageRegistration = () => {
 
             <MyButton onClick = {clickRegistr}>Зарегистрироваться</MyButton>
             </form>
-            <p><Link to="/enter">я вспомнил свои данные аккаунта</Link></p>
-
+            <p><Link to="/enterUser">я вспомнил свои данные аккаунта</Link></p>
+            </div>
         </div>
     )
 }

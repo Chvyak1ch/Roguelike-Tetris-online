@@ -20,3 +20,18 @@ export const addUser = async (email, password, userName) => {
   localStorage.setItem('token', data.token);
   return jwtDecode(data.token);  
 };
+
+export const allData = async () => {
+  const {data} = await $host.get('api/users/showUsers', {
+    params:{
+      email: email, 
+      password: password, 
+      userName: userName, 
+      id: id,
+      role: role
+    }
+    });
+  console.log('ну вроде как должны вывести аккаунты');
+  return data;
+};
+

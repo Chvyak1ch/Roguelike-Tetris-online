@@ -1,9 +1,29 @@
+
+
 .bodyEnterUser {
     padding-top: 20px;
+    background-image: url('backfonEnter.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 104.5%;
+    
 }
+
 .bodyEnterUser h2{
     padding-top: 20px;
 }
+
 .bodyEnterUser p{
     padding-top: 20px;
+}
+
+.formEnter {
+    align-items: center;
+    margin-top: 10px;
+    border: 2px solid blue;
+    border-radius: 10px;
+    width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+    background-color: rgb(210, 217, 255);
 }

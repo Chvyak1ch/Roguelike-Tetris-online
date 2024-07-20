@@ -1,0 +1,13 @@
+.nav-item {
+    letter-spacing: 0.24px;
+    color: #373745;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 24px;
+    border-radius: 200px;
+    padding: 8px 12px;
+    transition: all .2s ease-in-out;
+    &:hover {
+        background: #ffc79a;
+    }
+}

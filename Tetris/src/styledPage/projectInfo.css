@@ -3,12 +3,11 @@
 }
 
 .infoToDeveloper {
-
+    margin-bottom: 0px;
     padding-top: 20px;
     padding-bottom: 20px;
     background-color: grey;
     position: absolute;
-    bottom: 0;
     width: 100%;
 }
 

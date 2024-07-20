@@ -1,7 +1,9 @@
 .myInput {
-    height: 20px;
+    height: 25px;
     width: 200px;
     padding: 5 px 15px;
     margin: 5px 0;
     border: 2px solid orange;
+    border-radius: 5px;
+
 }

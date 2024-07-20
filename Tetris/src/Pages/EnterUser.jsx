@@ -5,26 +5,33 @@ import MyButton from "../components/MyButton";
 import '../styledPage/enterUser.css';
 import { login } from "../http/userAPI";
 import { useNavigate } from "react-router-dom";
+import UserStore from "../store/UserStore";
 
 const EnterUser = () => {
     const navigate = useNavigate();
-    const[email, setEmail] = useState('');
-    const[password, setPassword] = useState('');
+    const [dat, setDat] = useState([]);
+    const [filData, setFilData] = useState([]);
+    const [email, setEmail] = useState('');
+    const [password, setPassword] = useState('');
 
     const userEnterLogin = async () => {
         try{
             let data;
             data = await login(email, password);
             alert('все прошло успешно');
-            navigate("/");
+            UserStore.setUser(data); 
+            UserStore.setIsAuth(true);
+            navigate("/game");
         } catch (e) {
             alert(e.response.data.message)
         }
     }
 
+
     return(
         <div className="bodyEnterUser">
             <h1>Добро пожаловать!</h1>
+            <div className="formEnter">
             <h2>Ввойдите в аккаунт</h2>
             
             <p>email:</p>
@@ -46,6 +53,7 @@ const EnterUser = () => {
             <MyButton onClick={userEnterLogin}>Войти</MyButton>
 
             <p><Link to="/registration">регистрация</Link></p>
+            </div>
         </div>
 )
 }

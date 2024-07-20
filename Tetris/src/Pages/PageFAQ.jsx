@@ -1,15 +1,44 @@
 import React from "react";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import '../styledPage/pageFaq.css';
 //Components
-import FAQPost from "../components/FAQPost";
+import FAQPost from "../components/postsAndCommentsFAQ/FAQPost";
+import MyButton from "../components/MyButton";
+import MyInput from "../components/MyInput";
 
 
 const PageFAQ = () => {
     const [quest, setQuest] = useState('')
-    const [postQuests, setPostQuests] = useState([{
-        quest
-    }])
+    const [postQuests, setPostQuests] = useState([{quest}])
+    const [test, setTest] = useState([])
+
+    const showFAQPosts = async () => {
+        try{
+            const response = await fetch('http://localhost:5000/api/faqposts/getAll')
+            const jsonData = await response.json()
+            setTest(jsonData)
+        } catch (e) {
+            alert(e.response.data.message)
+        }      
+    }
+
+    useEffect(() => {
+        showFAQPosts();
+    }, []);
+
+    const renderedFAQPosts = test.map((item) =>(
+        <FAQPost 
+        titleName={item.titleName}
+        titleNameBig={item.smallTitleName}
+        textToTheQuestion={item.adminText}           
+        />
+    ))
+
+
+
+
+
+
 
     const mailPost = (e) => {
 
@@ -31,27 +60,24 @@ const PageFAQ = () => {
         <div className="bodyFaq">
             
             <h2>Ваши часто задаваемы вопросы</h2>
+            {renderedFAQPosts}
 
-            <FAQPost 
-            titleName="Какие планы?"
-            titleNameBig="проект был начат развитие идет, а дальше какие будут продвижения?"
-            textToTheQuestion="Без паники, проект все так же будет развиваться дальше и самостоятельно, держите за нас кулачки!)"           
-            />
-
-            <h2>Внимание! вы тоже можете писать ваши вопросы прямо здесь,
+            <h2>    
+                Внимание! вы тоже можете писать ваши вопросы прямо здесь,
                 но чтобы ваш вопрос был принят и отправлен нам, вам нужно
-                зарегистрироваться у нас на сайте!</h2>
+                зарегистрироваться у нас на сайте!
+            </h2>
 
             <p>напишите ваш вопрос здесь!</p>
 
-            <input 
+            <MyInput 
             type="text" 
             value={quest} 
             name="userQuestion" 
             onChange={e => setQuest(e.target.value)}
             />
             
-            <button onClick={mailPost}>Отправить</button>
+            <MyButton onClick={mailPost}>Отправить</MyButton>
 
         </div>
     )

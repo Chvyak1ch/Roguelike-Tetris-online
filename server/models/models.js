@@ -18,9 +18,35 @@ const Games = sequelize.define('games', {
 
 })
 
+const FAQPosts = sequelize.define('faqposts', {
+    id: {type: DataTypes.INTEGER, primaryKey: true, autoIncrement: true},
+    adminId: {type: DataTypes.INTEGER},
+    titleName: {type: DataTypes.STRING},
+    smallTitleName: {type: DataTypes.STRING},
+    adminText: {type: DataTypes.STRING}
+})
+
+const CommentsPosts = sequelize.define('commentsposts', {
+    id: {type: DataTypes.INTEGER, primaryKey: true, autoIncrement: true},
+    userName: {type: DataTypes.STRING},
+    userText: {type: DataTypes.STRING}
+})
+
 Users.hasMany(Games)
 Games.belongsTo(Users)
 
+Users.hasMany(FAQPosts)
+FAQPosts.belongsTo(Users)
+
+Users.hasMany(CommentsPosts)
+CommentsPosts.belongsTo(Users)
+
+FAQPosts.hasMany(CommentsPosts)
+CommentsPosts.belongsTo(FAQPosts)
+
+
+
+
 module.exports = {
-    Users, Games,
+    Users, Games, FAQPosts, CommentsPosts
 }

@@ -9,7 +9,8 @@ const GamePage = () => {
                 <p><Link to ="/tetris">играть в классику</Link></p>
             </div>
             <div id="gameWindow2">
-                <p>играть в рогалик</p>
+                <p>играть в мод режим</p>
+                <p>мы в разработке</p>
             </div>
         </div>
     )
